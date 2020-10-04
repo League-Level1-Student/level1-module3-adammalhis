@@ -14,7 +14,18 @@ public class Backpack {
 		// 1. First you need to put all your supplies into your backpack - use
 		// the putInBackpack(...) methods
 
+		
+		Pencil pencil= new Pencil();
+		putInBackpack(pencil);
+		Ruler ruler= new Ruler();
+		putInBackpack(ruler);
+		Textbook textbook= new Textbook();
+		putInBackpack(textbook);
+		
+		
+		
 		goToSchool();
+		
 	}
 
 
