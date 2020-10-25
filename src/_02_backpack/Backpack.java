@@ -15,12 +15,9 @@ public class Backpack {
 		// the putInBackpack(...) methods
 
 		
-		Pencil pencil= new Pencil();
-		putInBackpack(pencil);
-		Ruler ruler= new Ruler();
-		putInBackpack(ruler);
-		Textbook textbook= new Textbook();
-		putInBackpack(textbook);
+		putInBackpack(new Pencil());
+		putInBackpack(new Ruler());
+		putInBackpack(new Textbook());
 		
 		
 		
