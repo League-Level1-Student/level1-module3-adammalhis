@@ -12,9 +12,13 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -25,7 +29,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 * When the user clicks on a secret place, stuff will happen.
 	 * 
 	 * 1. Make the frame respond to mouse clicks.
-	 * 
+	 *
 	 * 2. When the mouse is clicked, use the Media Palace (read the code in the magic_box package) to play sounds, 
 	 *    show images or speak.
 	 * 
@@ -35,7 +39,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 */
 
 	BufferedImage backgroundImage;
-
+	
 
 	@Override
 	public void run() {
@@ -46,14 +50,16 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 			System.err.println(w.getMessage());
 		}
 	}
-
+	JFrame frame = new JFrame("The Magic Box contains many secrets...");
+	
 	private void createUI() {
-		JFrame frame = new JFrame("The Magic Box contains many secrets...");
+		
 		frame.add(this);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.addMouseListener(this);
 	}
 
 	private void loadBackgroundImage() throws Exception {
@@ -64,27 +70,70 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 			throw new Exception("Could not load image: " + imageFile);
 		}
 	}
+	
+	
 
 	@Override
 	public void paintComponent(Graphics g) {
 		g.drawImage(backgroundImage, 0, 0, null);
+		
+		
+		
+		
+		
 	}
-
+	public void playMusicOnComputer(String sound) {
+		File fileToPlay = new File(sound);
+		try {
+			java.awt.Desktop.getDesktop().open(fileToPlay);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		
+	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		int frameX= e.getX();
+		int frameY= e.getY();
 		
+		// TODO Auto-generated method stub
+		System.out.println("X:" + frameX + "	Y:" + frameY);
+		if  (frameX <100 & frameY <100) {
+			playMusicOnComputer("src/_04_magic_box/drum.wav");
+		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		int frameX= e.getX();
+		int frameY= e.getY();
+		
 		// TODO Auto-generated method stub
+		
+		if (frameX >200 & frameX <300 & frameY >200 & frameY <300) {
+			
+			playMusicOnComputer("src/_04_magic_box/footsteps.wav");
+			
+		}
+			
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		int frameX= e.getX();
+		int frameY= e.getY();
+		
 		// TODO Auto-generated method stub
+		
+		if (frameX >250 & frameX <350 & frameY >500 & frameY <600) {
+			
+			playMusicOnComputer("src/_04_magic_box/footsteps.wav");
+			
+		}
+		
+		
 		
 	}
 
