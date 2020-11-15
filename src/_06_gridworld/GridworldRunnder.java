@@ -32,9 +32,10 @@ public class GridworldRunnder {
 		ant.setDirection(90);
 		Flower sunflower= new Flower();
 		bob.show();
+		bob.add(area2, ant);
 		bob.add(area3, sunflower);
 		bob.add(area4, sunflower);
-		bob.add(area2, ant);
+		
 		
 		
 		
@@ -50,14 +51,21 @@ public class GridworldRunnder {
 			Location area13= new Location(i, i+8);
 			Location area14= new Location(i, i+9);
 			
+			
 			bob.add(area5, sunflower);
 			bob.add(area6, sunflower);
 			bob.add(area7, sunflower);
 			bob.add(area8, sunflower);
 			bob.add(area9, sunflower);
 			bob.add(area10, sunflower);
-			bob.add(area5, sunflower);
-			bob.add(area5, sunflower);
+			bob.add(area11, sunflower);
+			bob.add(area12, sunflower);
+			bob.add(area13, sunflower);
+			bob.add(area14, sunflower);
+			
+		
+		
+		
 		}
 		
 		
