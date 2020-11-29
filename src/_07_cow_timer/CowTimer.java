@@ -32,10 +32,10 @@ public class CowTimer {
 		 * 2. Count down the minutes, print the current minute then sleep for the number
 		 * of minutes using Thread.sleep(int milliseconds).
 		 */
-		for (int i=0; i>5; i++) {
+		for (int i=0; i<minutes; i++) {
 			
 		System.out.println(minutes - i);
-		Thread.sleep(3);
+		Thread.sleep(1000);
 		
 		}
 		
@@ -44,13 +44,14 @@ public class CowTimer {
 		 * You can use the .wav file in the default package, or you can download one
 		 * from freesound.org, then drag it intothe default package.
 		 */
-		if (minutes== (0)) {
-			playSound
-		}
+		
+			playSound("moo.wav");
+		
 	}
 
-	private void playSound(String fileName) {
-		AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+	private void playSound(String moo) {
+		System.out.println("moo");
+		AudioClip sound = JApplet.newAudioClip(getClass().getResource(moo));
 		sound.play();
 	}
 
